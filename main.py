@@ -4,18 +4,23 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import os
+from dotenv import load_dotenv
+
 
 chrome_options=webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach",True)
 driver=webdriver.Chrome(options=chrome_options)
 wait = WebDriverWait(driver, 10)
+load_dotenv()
 
 
 
 PROMISED_DOWN=150
 PROMISED_UP=10
-YOUR_EMAIL="dummy0172255@gmail.com"
-YOUR_PASSWORD="wxl2476o@@"
+YOUR_EMAIL = os.getenv("YOUR_EMAIL")
+YOUR_PASSWORD = os.getenv("YOUR_PASSWORD")
+
 # insert_email=driver.find_element(By.XPATH,value='//*[@id="loginForm"]/div[1]/div[1]/div/label/input')
 # insert_password=driver.find_element(By.XPATH,value='//*[@id="loginForm"]/div[1]/div[2]/div/label/input')
 # button=driver.find_element(By.XPATH,value='//*[@id="loginForm"]/div[1]/div[3]')
